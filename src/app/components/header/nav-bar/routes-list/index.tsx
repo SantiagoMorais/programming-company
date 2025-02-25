@@ -42,7 +42,7 @@ export const RoutesList = ({ insideASheet, className }: IRoutesListProps) => {
     <ul
       onMouseLeave={handleOnMouseLeave}
       className={twMerge(
-        "relative flex flex-col items-center gap-4 pt-8 md:mx-auto md:flex-row md:justify-center md:pt-0",
+        "relative flex flex-col items-center gap-4 pt-8 md:mx-auto md:flex-row md:justify-center md:gap-0 md:pt-0",
         className
       )}
     >
@@ -80,7 +80,10 @@ export const RouteItem = ({
   };
 
   const link = (
-    <a href={route.path} className={`px-3 py-1.5 inline-block ${insideASheet ? "text-xl" : "text-base"}`}>
+    <a
+      href={route.path}
+      className={`inline-block px-3 py-1.5 ${insideASheet ? "text-xl" : "text-base"}`}
+    >
       {route.title}
     </a>
   );
@@ -92,11 +95,7 @@ export const RouteItem = ({
       key={route.title}
       className="relative z-10 block w-fit px-4 text-white mix-blend-difference"
     >
-      {insideASheet ? (
-        <SheetClose className="">{link}</SheetClose>
-      ) : (
-        link
-      )}
+      {insideASheet ? <SheetClose className="">{link}</SheetClose> : link}
     </li>
   );
 };
