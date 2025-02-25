@@ -1,4 +1,4 @@
-interface IRoutes {
+export interface IRoutes {
   title: string;
   path: string;
 }
