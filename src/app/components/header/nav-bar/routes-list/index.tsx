@@ -1,29 +1,15 @@
 "use client";
 
 import { SheetClose } from "@/components/ui/sheet";
-import { IRoutes, navBarRoutes } from "@/utils/routes";
-import { useRef, useState } from "react";
+import {
+  ICursorPosition,
+  IRouteItemProps,
+  IRoutesListProps,
+} from "@/core/interfaces/routes-list-props";
+import { navBarRoutes } from "@/utils/routes";
 import { motion, TargetAndTransition } from "framer-motion";
+import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
-
-export interface ICursorPosition {
-  top: number;
-  left: number;
-  width: string | number;
-  opacity: number;
-  height: number;
-}
-
-export interface IRouteItemProps {
-  route: IRoutes;
-  setPosition: React.Dispatch<React.SetStateAction<ICursorPosition>>;
-  insideASheet: boolean;
-}
-
-export interface IRoutesListProps {
-  insideASheet: boolean;
-  className?: string;
-}
 
 export const RoutesList = ({ insideASheet, className }: IRoutesListProps) => {
   const [position, setPosition] = useState<ICursorPosition>({
