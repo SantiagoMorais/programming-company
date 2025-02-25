@@ -3,7 +3,7 @@ import prettierConfig from "eslint-config-prettier";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import prettierPlugin from "eslint-plugin-prettier";
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
+
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +17,6 @@ const eslintConfig = {
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   plugin: {
     prettierPlugin,
-    typescriptPlugin,
     "simple-import-sort": simpleImportSort,
   },
   rules: {
