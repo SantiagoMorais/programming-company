@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export const Hero = () => (
   <section className="flex min-h-[50dvh] w-full flex-col justify-center gap-10">
     <h2 className="text-center text-4xl">
-      <strong className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+      <strong className="bg-linear-to-r from-secondary to-primary bg-clip-text text-transparent">
         Do código ao impacto:
       </strong>
       <br />
