@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/components/header/nav-bar/routes-list"
+    "src/app/components/header/routes-list"
   ],
   "exclude": ["node_modules"]
 }
