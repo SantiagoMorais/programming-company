@@ -14,10 +14,12 @@ export const ThemeTogglerContext = createContext<IThemeTogglerContext>({
 });
 
 export const ThemeTogglerProvider = ({ children }: React.PropsWithChildren) => {
-  const [theme, setTheme] = useState<Theme>(() => {
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
     const storedTheme = localStorage.getItem("local-theme") as Theme | null;
-    return storedTheme ?? "light";
-  });
+    if (storedTheme) setTheme(storedTheme);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("local-theme", theme);
