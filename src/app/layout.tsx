@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import { ThemeTogglerProvider } from "@/contexts/theme-toggler-context";
 
 const rubik = Rubik({
   variable: "--font-rubik-serif",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rubik.className}>{children}</body>
+      <body className={rubik.className}>
+        <ThemeTogglerProvider>{children}</ThemeTogglerProvider>
+      </body>
     </html>
   );
 }
