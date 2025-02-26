@@ -22,7 +22,7 @@ export const CardsList = () => {
 
   return (
     <ul
-      className="grid w-fit items-center justify-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid w-fit items-center justify-center gap-8 px-4 sm:grid-cols-2 md:grid-cols-3"
       onMouseLeave={handleOnMouseLeave}
     >
       <Cursor
