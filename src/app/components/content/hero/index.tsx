@@ -59,7 +59,10 @@ export const Hero = () => (
       className="flex w-full flex-wrap justify-center gap-4"
     >
       <Button className="md:px-5 md:py-8 md:text-xl">Entre em contato</Button>
-      <Button variant="outline" className="md:px-5 md:py-8 md:text-xl">
+      <Button
+        variant="outline"
+        className="hover:border-primary hover:border-1 md:px-5 md:py-8 md:text-xl hover:text-primary duration-300"
+      >
         Sobre nós
       </Button>
     </motion.div>
