@@ -1,4 +1,5 @@
 import { Background } from "@/components/background";
+
 import { Content } from "./components/content";
 import { Header } from "./components/header";
 

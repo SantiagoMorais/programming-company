@@ -1,15 +1,15 @@
 "use client";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 import {
   ICursorPosition,
   IRoutesListProps,
 } from "@/core/interfaces/routes-list-props";
 import { navBarRoutes } from "@/utils/routes";
-import { useState } from "react";
-import { twMerge } from "tailwind-merge";
+
 import { Cursor } from "./cursor";
 import { RouteItem } from "./route-item";
-
 export const RoutesList = ({ insideASheet, className }: IRoutesListProps) => {
   const [position, setPosition] = useState<ICursorPosition>({
     top: 0,

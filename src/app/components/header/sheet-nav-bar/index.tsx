@@ -1,5 +1,8 @@
 "use client";
 
+import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -9,9 +12,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+
 import { RoutesList } from "../routes-list";
-import { useEffect, useState } from "react";
 
 export const SheetNavBar = () => {
   const [open, setOpen] = useState(false);

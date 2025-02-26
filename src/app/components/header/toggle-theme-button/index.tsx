@@ -1,9 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useToggleThemeContext } from "@/contexts/theme-toggler-context";
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { useToggleThemeContext } from "@/contexts/theme-toggler-context";
 
 export const ToggleThemeButton = () => {
   const { handleToggleTheme, theme } = useToggleThemeContext();

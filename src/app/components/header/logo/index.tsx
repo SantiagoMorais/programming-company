@@ -1,5 +1,6 @@
-import logo from "@/assets/logo.png";
 import Image from "next/image";
+
+import logo from "@/assets/logo.png";
 
 export const Logo = () => (
   <section className="flex items-center gap-2 select-none">

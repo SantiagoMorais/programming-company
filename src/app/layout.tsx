@@ -1,7 +1,9 @@
-import { ThemeTogglerProvider } from "@/contexts/theme-toggler-context";
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
-import "./globals.css";
+
+import { ThemeTogglerProvider } from "@/contexts/theme-toggler-context";
 
 const rubik = Rubik({
   variable: "--font-rubik-serif",

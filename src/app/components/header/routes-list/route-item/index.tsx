@@ -1,6 +1,7 @@
+import { useRef } from "react";
+
 import { SheetClose } from "@/components/ui/sheet";
 import { IRouteItemProps } from "@/core/interfaces/routes-list-props";
-import { useRef } from "react";
 
 export const RouteItem = ({
   route,
