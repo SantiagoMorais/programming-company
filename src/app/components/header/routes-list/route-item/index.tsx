@@ -36,7 +36,6 @@ export const RouteItem = ({
     <li
       ref={ref}
       onMouseEnter={handleOnMouseEnter}
-      key={route.title}
       className="relative z-10 block w-fit px-4 text-white mix-blend-difference"
     >
       {insideASheet ? <SheetClose className="">{link}</SheetClose> : link}
