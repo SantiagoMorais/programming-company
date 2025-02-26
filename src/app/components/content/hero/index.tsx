@@ -17,7 +17,7 @@ const letter = {
 };
 
 export const Hero = () => (
-  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10 md:h-[70dvh] md:min-h-auto md:max-h-(--breakpoint-md)">
+  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10 md:h-[70dvh] md:max-h-(--breakpoint-md) md:min-h-auto">
     <motion.h2
       className="text-center text-4xl md:text-7xl"
       variants={sentence}
@@ -33,7 +33,11 @@ export const Hero = () => (
       </motion.strong>
       <br />
       {"construímos o futuro do seu negócio.".split("").map((char, index) => (
-        <motion.span key={`text-${index}`} variants={letter}>
+        <motion.span
+          key={`text-${index}`}
+          variants={letter}
+          className="font-medium"
+        >
           {char}
         </motion.span>
       ))}
@@ -42,7 +46,7 @@ export const Hero = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      className="text-muted-foreground text-center text-xl max-w-(--breakpoint-lg)"
+      className="text-muted-foreground max-w-(--breakpoint-lg) text-center text-xl"
     >
       Impulsione sua presença digital com soluções modernas e estratégias
       inovadoras. Contamos com um time de especialistas em desenvolvimento web,
