@@ -5,7 +5,7 @@ import { Header } from "./components/header";
 
 export default function Home() {
   return (
-    <main className="bg-grid flex flex-col items-center">
+    <main className="flex flex-col items-center">
       <Background />
       <Header />
       <Content />

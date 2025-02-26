@@ -18,7 +18,7 @@ const letter = {
 };
 
 export const Hero = () => (
-  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10 md:h-[70dvh] md:max-h-(--breakpoint-md) md:min-h-auto">
+  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10 md:h-screen md:max-h-[768px] md:min-h-fit">
     <motion.h2
       className="text-center text-4xl md:text-7xl"
       variants={sentence}
