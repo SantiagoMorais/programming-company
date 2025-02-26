@@ -17,9 +17,9 @@ const letter = {
 };
 
 export const Hero = () => (
-  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10">
+  <section className="flex min-h-[50dvh] w-full flex-col items-center justify-center gap-10 md:h-[70dvh] md:min-h-auto md:max-h-(--breakpoint-md)">
     <motion.h2
-      className="text-center text-4xl"
+      className="text-center text-4xl md:text-7xl"
       variants={sentence}
       initial="hidden"
       animate="visible"
@@ -42,10 +42,11 @@ export const Hero = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      className="text-muted-foreground max-w-4/5 text-center text-xl"
+      className="text-muted-foreground text-center text-xl max-w-(--breakpoint-lg)"
     >
-      Desenvolvimento de sites e aplicações com visão estratégica. Comece agora
-      e expanda para novas oportunidades.
+      Impulsione sua presença digital com soluções modernas e estratégias
+      inovadoras. Contamos com um time de especialistas em desenvolvimento web,
+      com parcerias estratégicas para demandas complementares.
     </motion.h3>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
