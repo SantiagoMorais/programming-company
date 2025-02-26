@@ -61,7 +61,7 @@ export const Hero = () => (
       <Button className="md:px-5 md:py-8 md:text-xl">Entre em contato</Button>
       <Button
         variant="outline"
-        className="hover:border-primary hover:border-1 md:px-5 md:py-8 md:text-xl hover:text-primary duration-300"
+        className="hover:border-primary hover:text-primary duration-300 hover:border-1 md:px-5 md:py-8 md:text-xl"
       >
         Sobre nós
       </Button>

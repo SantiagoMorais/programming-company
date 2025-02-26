@@ -2,7 +2,7 @@ import logo from "@/assets/logo.png";
 import Image from "next/image";
 
 export const Logo = () => (
-  <section className="flex select-none items-center gap-2">
+  <section className="flex items-center gap-2 select-none">
     <div className="relative size-10">
       <Image src={logo} fill alt="logo" className="object-contain" />
     </div>
