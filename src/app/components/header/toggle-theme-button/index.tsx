@@ -2,12 +2,28 @@
 
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useToggleThemeContext } from "@/contexts/theme-toggler-context";
+
+type Theme = "light" | "dark";
 
 export const ToggleThemeButton = () => {
-  const { handleToggleTheme, theme } = useToggleThemeContext();
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("local-theme") as Theme | null;
+    if (storedTheme) setTheme(storedTheme);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("local-theme", theme);
+    document.body.classList.toggle("dark", theme === "dark");
+  }, [theme]);
+
+  const handleToggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   return (
     <Button variant="ghost" onClick={handleToggleTheme}>
