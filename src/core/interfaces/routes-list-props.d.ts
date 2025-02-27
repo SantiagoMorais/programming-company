@@ -9,10 +9,10 @@ export interface ICursorPosition {
 export interface IRouteItemProps {
   route: IRoutes;
   setPosition: React.Dispatch<React.SetStateAction<ICursorPosition>>;
-  insideASheet: boolean;
+  insideASheet?: boolean;
 }
 
 export interface IRoutesListProps {
-  insideASheet: boolean;
+  insideASheet?: boolean;
   className?: string;
 }

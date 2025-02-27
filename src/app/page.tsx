@@ -1,6 +1,7 @@
 import { Background } from "@/components/background";
 
 import { Content } from "./components/content";
+import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Background />
       <Header />
       <Content />
+      <Footer />
     </main>
   );
 }

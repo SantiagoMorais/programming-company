@@ -3,13 +3,9 @@ import { z } from "zod";
 export const envSchema = z.object({
   LINKEDIN_URL: z.string().url().optional(),
   INSTAGRAM_URL: z.string().url().optional(),
-  WHATSAPP_NUMBER: z.coerce
-    .string()
-    .min(11)
-    .max(11)
-    .refine((number) => number.length === 11, {
-      message: "WhatsApp number must has 11 characters",
-    }),
+  WHATSAPP_NUMBER: z.string().refine((number) => number.length === 11, {
+    message: "WhatsApp number must has 11 characters",
+  }),
   EMAIL: z.string().email(),
 });
 
