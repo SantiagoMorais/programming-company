@@ -1,10 +1,11 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { CircleCheck, Loader } from "lucide-react";
+import { CircleCheck, Loader, MousePointer2 } from "lucide-react";
 import { useState } from "react";
 
 import manProfilePhoto from "@/assets/why-choose-us-section/profile-photo-man.jpg";
 import womanProfilePhoto from "@/assets/why-choose-us-section/profile-photo-woman.jpg";
+import { Button } from "@/components/ui/button";
 
 import {
   LoadingSkeletonContent,
@@ -71,6 +72,10 @@ export const ChildrenContent = () => {
           {content()}
         </motion.div>
       </AnimatePresence>
+      <Button variant="ghost" onClick={() => handleOnMouseEnter()}>
+        Clique e veja
+        <MousePointer2 className="animate-bounce" />
+      </Button>
     </section>
   );
 };
