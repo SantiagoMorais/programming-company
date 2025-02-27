@@ -24,7 +24,7 @@ export const ResponsiveDesignCard = () => (
             key={feature}
             className="text-muted-foreground flex items-center gap-2"
           >
-            <CheckCircle size={15} /> {feature}
+            <CheckCircle className="size-4 min-w-4" /> {feature}
           </li>
         ))}
       </ul>
