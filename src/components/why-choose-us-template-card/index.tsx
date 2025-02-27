@@ -13,7 +13,7 @@ export const WhyChooseUsTemplateCard = ({
 }: IWhyChooseUsTemplateCardProps) => (
   <section
     className={twMerge(
-      "bg-muted flex w-full flex-col items-center gap-8 rounded-xl p-6 py-10 md:flex-row md:p-10 md:py-20",
+      "bg-muted flex w-full flex-col items-center gap-8 rounded-xl p-6 md:flex-row md:p-10 md:py-20",
       className
     )}
   >
@@ -23,11 +23,20 @@ export const WhyChooseUsTemplateCard = ({
     <article
       className={`z-20 flex-1 space-y-4 ${reverseContent && "md:order-1"}`}
     >
-      <h4 className="text-2xl font-semibold md:text-3xl">{title}</h4>
-      <p className="text-muted-foreground">{subtitle}</p>
+      <h4
+        className={`text-2xl font-semibold md:text-3xl ${reverseContent && "md:text-end"}`}
+      >
+        {title}
+      </h4>
+      <p className={`text-muted-foreground ${reverseContent && "md:text-end"}`}>
+        {subtitle}
+      </p>
       <ul className="mt-10 space-y-4">
         {content.map((feature) => (
-          <li key={feature} className="flex items-center gap-2">
+          <li
+            key={feature}
+            className={`flex items-center gap-2 ${reverseContent && "md:flex-row-reverse"}`}
+          >
             <CheckCircle className="size-4 min-w-4" />{" "}
             <p className="text-muted-foreground">{feature}</p>
           </li>
