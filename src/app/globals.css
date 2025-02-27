@@ -114,6 +114,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-custom-rotate: custom-rotate 2s ease-in-out infinite;
 
   @keyframes accordion-down {
     from {
@@ -130,6 +131,20 @@
     }
     to {
       height: 0;
+    }
+  }
+
+  @keyframes custom-rotate {
+    0% {
+      transform: rotate(0deg);
+      opacity: 100%;
+    }
+    50% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 100%;
+      transform: rotate(360deg);
     }
   }
 }
