@@ -1,54 +1,43 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleCheck, Loader } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
 import manProfilePhoto from "@/assets/why-choose-us-section/profile-photo-man.jpg";
 import womanProfilePhoto from "@/assets/why-choose-us-section/profile-photo-woman.jpg";
-import { Skeleton } from "@/components/ui/skeleton";
 
-const LoadingSkeletonContent = () => (
-  <div className="flex w-full flex-col items-center gap-4 sm:w-fit sm:flex-row">
-    <Skeleton className="bg-muted-foreground size-12 min-h-12 min-w-12 rounded-full sm:size-16 sm:min-h-16 sm:min-w-16" />
-    <div className="flex w-full flex-col items-center gap-2 sm:w-fit sm:items-start sm:gap-3">
-      <Skeleton className="bg-muted-foreground h-6 w-full sm:w-60 md:w-80" />
-      <Skeleton className="bg-muted-foreground h-6 w-4/5 sm:w-50 md:w-60" />
-    </div>
-  </div>
-);
-
-const UploadedSkeletonContent = ({
-  photo,
-  name,
-  title,
-}: {
-  photo: StaticImageData;
-  name: string;
-  title: string;
-}) => (
-  <div className="flex w-full flex-col items-center gap-4 sm:w-fit sm:flex-row">
-    <div className="shadow-secondary border-primary relative size-12 min-h-12 min-w-12 rounded-full border-2 sm:size-16 sm:min-h-16 sm:min-w-16">
-      <Image src={photo} alt="foto de perfil" fill className="rounded-full" />
-    </div>
-    <div className="flex w-full flex-col items-center gap-2 sm:w-fit sm:items-start sm:gap-3">
-      <div className="bg-muted-foreground/30 flex h-6 w-full items-center justify-center rounded-md sm:w-60 sm:justify-start md:w-80">
-        <p className="truncate px-2 text-center text-sm font-semibold text-ellipsis sm:text-start sm:text-base">
-          {name}
-        </p>
-      </div>
-      <div className="bg-background/50 flex h-6 w-4/5 max-w-4/5 items-center justify-center overflow-hidden rounded-md sm:w-50 sm:justify-start md:w-60">
-        <p className="text-muted-foreground truncate px-2 text-center text-sm text-ellipsis sm:text-start sm:text-base">
-          {title}
-        </p>
-      </div>
-    </div>
-  </div>
-);
+import {
+  LoadingSkeletonContent,
+  UploadedSkeletonContent,
+} from "./skeleton-content";
 
 export const ChildrenContent = () => {
   const [mousePosition, setMousePosition] = useState<"in" | "out">("out");
   const handleOnMouseEnter = () => setMousePosition("in");
+
+  const content = () => {
+    if (mousePosition === "out")
+      return (
+        <>
+          <LoadingSkeletonContent />
+          <LoadingSkeletonContent />
+        </>
+      );
+    return (
+      <>
+        <UploadedSkeletonContent
+          photo={manProfilePhoto}
+          name="Rafael Henrique Souza"
+          position="Designer UI/UX"
+        />
+        <UploadedSkeletonContent
+          photo={womanProfilePhoto}
+          name="Amanda Beatriz Oliveira"
+          position="Desenvolvedora FullStack"
+        />
+      </>
+    );
+  };
 
   return (
     <section
@@ -79,25 +68,7 @@ export const ChildrenContent = () => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="flex w-full flex-col items-center gap-6"
         >
-          {mousePosition === "out" ? (
-            <>
-              <LoadingSkeletonContent />
-              <LoadingSkeletonContent />
-            </>
-          ) : (
-            <>
-              <UploadedSkeletonContent
-                photo={manProfilePhoto}
-                name="Rafael Henrique Souza"
-                title="Designer UI/UX"
-              />
-              <UploadedSkeletonContent
-                photo={womanProfilePhoto}
-                name="Amanda Beatriz Oliveira"
-                title="Desenvolvedora FullStack"
-              />
-            </>
-          )}
+          {content()}
         </motion.div>
       </AnimatePresence>
     </section>
