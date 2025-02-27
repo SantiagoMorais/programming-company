@@ -31,7 +31,7 @@ export const ResponsiveDesignCard = () => (
     </article>
     <div className="group relative flex w-full justify-center">
       <div className="to-muted absolute -bottom-2.5 z-10 h-1/2 w-full bg-linear-to-b from-transparent" />
-      <div className="ring-ring relative h-150 w-full max-w-80 overflow-hidden rounded-xl ring-8 md:h-100 md:max-w-64">
+      <div className="ring-ring relative h-dvw max-h-150 w-full max-w-80 overflow-hidden rounded-xl ring-8 md:h-100 md:max-w-64">
         <Image
           src={cellphoneImage}
           fill
