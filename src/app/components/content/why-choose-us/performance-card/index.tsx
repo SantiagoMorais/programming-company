@@ -8,6 +8,7 @@ export const PerformanceCard = () => (
     title={performanceCardContent.title}
     subtitle={performanceCardContent.subtitle}
     content={performanceCardContent.features}
+    className="py-10"
   >
     <ChildrenContent />
   </WhyChooseUsTemplateCard>
