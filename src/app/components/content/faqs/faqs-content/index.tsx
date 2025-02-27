@@ -20,7 +20,7 @@ export const FaqsContent = () => {
   };
 
   return (
-    <ul className="flex max-w-full min-w-0 flex-1 flex-col px-4 md:max-w-(--breakpoint-md)">
+    <ul className="flex max-w-full min-w-0 flex-1 flex-col md:max-w-(--breakpoint-md)">
       {faqs.map((faq, index) => (
         <li
           key={faq.question}
