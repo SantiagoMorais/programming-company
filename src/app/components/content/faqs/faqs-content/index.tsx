@@ -41,7 +41,9 @@ export const FaqsContent = () => {
             />
           </Button>
           <Collapse isOpened={isFaqSelected(faq.question)}>
-            <p className="text-muted-foreground p-4 text-sm md:text-base">{faq.answer}</p>
+            <p className="text-muted-foreground p-4 text-sm md:text-base">
+              {faq.answer}
+            </p>
           </Collapse>
           {index !== faqs.length - 1 && <Separator className="my-2" />}
         </li>
