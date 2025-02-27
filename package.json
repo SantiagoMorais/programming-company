@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
@@ -19,6 +20,7 @@
     "lucide-react": "^0.476.0",
     "next": "15.1.7",
     "react": "^19.0.0",
+    "react-collapse": "^5.1.1",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2",
     "tailwind-variants": "^0.3.1",
@@ -29,6 +31,7 @@
     "@tailwindcss/postcss": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
+    "@types/react-collapse": "^5.0.4",
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
