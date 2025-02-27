@@ -20,16 +20,19 @@ export const FaqsContent = () => {
   };
 
   return (
-    <ul className="flex max-w-(--breakpoint-md) flex-1 flex-col">
+    <ul className="flex max-w-full min-w-0 flex-1 flex-col px-4 md:max-w-(--breakpoint-md)">
       {faqs.map((faq, index) => (
         <li
           key={faq.question}
-          className="w-full flex-1 cursor-pointer last:mb-0"
+          className="w-full cursor-pointer last:mb-0"
           onClick={() => handleOpenFAQ(faq.question)}
         >
-          <Button variant="ghost" className="flex w-full justify-between">
+          <Button
+            variant="ghost"
+            className="flex h-fit w-full justify-between gap-4"
+          >
             <h3
-              className={`duration-500 ${isFaqSelected(faq.question) && "text-primary"}`}
+              className={`text-start text-wrap duration-500 ${isFaqSelected(faq.question) && "text-primary"}`}
             >
               {faq.question}
             </h3>
@@ -38,7 +41,7 @@ export const FaqsContent = () => {
             />
           </Button>
           <Collapse isOpened={isFaqSelected(faq.question)}>
-            <p className="text-muted-foreground p-4">{faq.answer}</p>
+            <p className="text-muted-foreground p-4 text-sm md:text-base">{faq.answer}</p>
           </Collapse>
           {index !== faqs.length - 1 && <Separator className="my-2" />}
         </li>
