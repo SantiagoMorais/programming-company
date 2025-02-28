@@ -38,6 +38,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.87 0 0);
+
+  --gradient-1: #6cd1b3;
+  --gradient-2: #6ca874;
+  --gradient-3: #80cf78;
+  --gradient-4: #6278b3;
+  --gradient-5: #67a6be;
 }
 
 .dark {
@@ -73,6 +79,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  --gradient-1: #d8b4fe;
+  --gradient-2: #f5d0fe;
+  --gradient-3: #fbcfe8;
+  --gradient-4: #fda4af;
+  --gradient-5: #a78bfa;
 }
 
 @theme inline {
@@ -115,6 +127,7 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-custom-rotate: custom-rotate 2s ease-in-out infinite;
+  --animate-aurora-animation: aurora-animation 20s infinite linear;
 
   @keyframes accordion-down {
     from {
@@ -147,6 +160,24 @@
       transform: rotate(360deg);
     }
   }
+
+  @keyframes aurora-animation {
+    0% {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    50% {
+      background-position:
+        100% 50%,
+        100% 50%;
+    }
+    100% {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+  }
 }
 
 @layer base {
@@ -155,6 +186,58 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .aurora-background {
+    background-image:
+      repeating-linear-gradient(
+        100deg,
+        var(--primary) 0%,
+        var(--muted) 7%,
+        transparent 10%,
+        transparent 12%,
+        var(--muted) 16%
+      ),
+      repeating-linear-gradient(
+        100deg,
+        var(--gradient-1) 10%,
+        var(--gradient-2) 15%,
+        var(--gradient-3) 20%,
+        var(--gradient-4) 25%,
+        var(--gradient-5) 30%
+      );
+    background-size:
+      300% 200%,
+      200% 100%;
+    background-position:
+      50% 50%,
+      50% 50%;
+    filter: blur(10px);
+    opacity: 0.5;
+    animation: aurora-animation 20s infinite linear;
+    mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+  }
+
+  .dark .aurora-background {
+    background-image:
+      repeating-linear-gradient(
+        100deg,
+        var(--muted) 0%,
+        var(--muted-foreground) 7%,
+        transparent 10%,
+        transparent 12%,
+        var(--muted) 16%
+      ),
+      repeating-linear-gradient(
+        100deg,
+        var(--gradient-1) 10%,
+        var(--gradient-2) 15%,
+        var(--gradient-3) 20%,
+        var(--gradient-4) 25%,
+        var(--gradient-5) 30%
+      );
   }
 }
 

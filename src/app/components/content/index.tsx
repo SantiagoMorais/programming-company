@@ -1,3 +1,4 @@
+import { AuroraBackground } from "./aurora-background";
 import { CoreTechnologies } from "./core-technologies";
 import { FAQs } from "./faqs";
 import { Hero } from "./hero";
@@ -9,5 +10,6 @@ export const Content = () => (
     <CoreTechnologies />
     <WhyChooseUs />
     <FAQs />
+    <AuroraBackground />
   </section>
 );
