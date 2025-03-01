@@ -1,4 +1,5 @@
 import { Background } from "@/components/background";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 import { Content } from "./components/content";
 import { Footer } from "./components/footer";
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <Content />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }
