@@ -1,11 +1,10 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { CircleCheck, Loader, MousePointer2 } from "lucide-react";
-import { useState } from "react";
+import { CircleCheck, Loader } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import manProfilePhoto from "@/assets/why-choose-us-section/profile-photo-man.jpg";
 import womanProfilePhoto from "@/assets/why-choose-us-section/profile-photo-woman.jpg";
-import { Button } from "@/components/ui/button";
 
 import {
   LoadingSkeletonContent,
@@ -13,17 +12,42 @@ import {
 } from "./skeleton-content";
 
 export const ChildrenContent = () => {
-  const [mousePosition, setMousePosition] = useState<"in" | "out">("out");
-  const handleOnMouseEnter = () => setMousePosition("in");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const currentSectionRef = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) setIsVisible(true);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1,
+      }
+    );
+
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
+    }
+
+    return () => {
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
+      }
+    };
+  }, [isVisible]);
 
   const content = () => {
-    if (mousePosition === "out")
+    if (!isVisible)
       return (
         <>
           <LoadingSkeletonContent />
           <LoadingSkeletonContent />
         </>
       );
+
     return (
       <>
         <UploadedSkeletonContent
@@ -42,18 +66,18 @@ export const ChildrenContent = () => {
 
   return (
     <section
+      ref={sectionRef}
       className="flex h-full w-full flex-1 flex-col items-center gap-6"
-      onMouseEnter={() => handleOnMouseEnter()}
     >
       <AnimatePresence mode="wait">
         <motion.div
-          key={mousePosition}
+          key={isVisible ? "visible" : "hidden"}
           initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
           animate={{ rotate: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           exit={{ rotate: 90, opacity: 0 }}
         >
-          {mousePosition === "out" ? (
+          {!isVisible ? (
             <Loader className="animate-custom-rotate text-primary size-8" />
           ) : (
             <CircleCheck className="text-secondary size-8" />
@@ -62,7 +86,7 @@ export const ChildrenContent = () => {
       </AnimatePresence>
       <AnimatePresence mode="popLayout">
         <motion.div
-          key={mousePosition}
+          key={isVisible ? "visible" : "hidden"}
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0 0 0)" }}
           exit={{ clipPath: "inset(0 0 0 100%)" }}
@@ -72,10 +96,6 @@ export const ChildrenContent = () => {
           {content()}
         </motion.div>
       </AnimatePresence>
-      <Button variant="ghost" onClick={() => handleOnMouseEnter()}>
-        Clique e veja
-        <MousePointer2 className="animate-bounce" />
-      </Button>
     </section>
   );
 };
