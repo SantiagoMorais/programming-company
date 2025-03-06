@@ -15,7 +15,7 @@ export const WhatsAppButton = () => (
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          className="fixed right-5 bottom-5 size-fit rounded-full opacity-80 md:right-10 md:bottom-10"
+          className="fixed right-5 bottom-5 z-50 size-fit rounded-full opacity-60 md:right-10 md:bottom-10"
           size="icon"
           variant="secondary"
           asChild
