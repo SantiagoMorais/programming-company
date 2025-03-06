@@ -1,6 +1,6 @@
 import { LucideIcon, MoonStar, Sun, Sunrise } from "lucide-react";
 
-interface ICustomizableOption {
+export interface ICustomizableOption {
   title: string;
   icon: LucideIcon;
   value: string;
