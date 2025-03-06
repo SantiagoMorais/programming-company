@@ -35,7 +35,7 @@ export const WhyChooseUsTemplateCard = ({
         {content.map((feature) => (
           <li
             key={feature}
-            className={`flex items-center gap-2 ${reverseContent && "md:flex-row-reverse"}`}
+            className={`flex items-center gap-2 ${reverseContent && "text-end md:flex-row-reverse"}`}
           >
             <CheckCircle className="size-4 min-w-4" />{" "}
             <p className="text-muted-foreground">{feature}</p>
