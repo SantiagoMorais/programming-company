@@ -1,3 +1,4 @@
+import { CustomizableCard } from "./customizable-card";
 import { Header } from "./header";
 import { PerformanceCard } from "./performance-card";
 import { ResponsiveDesignCard } from "./responsive-design-card";
@@ -7,5 +8,6 @@ export const WhyChooseUs = () => (
     <Header />
     <ResponsiveDesignCard />
     <PerformanceCard />
+    <CustomizableCard />
   </section>
 );
