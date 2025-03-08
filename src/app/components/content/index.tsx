@@ -3,6 +3,7 @@ import { AuroraBackground } from "./aurora-background";
 import { CoreTechnologies } from "./core-technologies";
 import { FAQs } from "./faqs";
 import { Hero } from "./hero";
+import { Portfolio } from "./portfolio";
 import { WhyChooseUs } from "./why-choose-us";
 
 export const Content = () => (
@@ -11,6 +12,7 @@ export const Content = () => (
     <AboutUs />
     <CoreTechnologies />
     <WhyChooseUs />
+    <Portfolio />
     <FAQs />
     <AuroraBackground />
   </section>

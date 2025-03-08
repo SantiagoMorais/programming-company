@@ -1,12 +1,18 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Cactus_Classical_Serif, Rubik } from "next/font/google";
 
 const rubik = Rubik({
   variable: "--font-rubik-serif",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const cactusClassical = Cactus_Classical_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rubik.className}>{children}</body>
+      <body className={(rubik.className, cactusClassical.className)}>
+        {children}
+      </body>
     </html>
   );
 }

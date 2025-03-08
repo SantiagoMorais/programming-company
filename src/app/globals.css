@@ -129,6 +129,8 @@
   --animate-custom-rotate: custom-rotate 2s ease-in-out infinite;
   --animate-aurora-animation: aurora-animation 20s infinite linear;
   --drop-shadow-all-around: 0 0 10px;
+  --font-family-rubik: "Rubik", sans-serif;
+  --font-family-cactus-classical: "Cactus Classical Serif", serif;
 
   @keyframes accordion-down {
     from {
@@ -181,15 +183,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @layer utilities {
   .aurora-background {
     background-image:
@@ -239,6 +232,15 @@
         var(--gradient-4) 25%,
         var(--gradient-5) 30%
       );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 font-family-rubik;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 

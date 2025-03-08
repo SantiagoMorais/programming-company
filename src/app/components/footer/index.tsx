@@ -9,7 +9,7 @@ export const Footer = () => (
   <footer className="flex w-full max-w-(--breakpoint-xl) flex-col items-center gap-4 px-4 py-8">
     <Separator />
     <section className="flex w-full flex-col items-center gap-4 py-4 md:flex-row md:justify-between md:px-16">
-      <Logo />
+      <Logo invert imageClassName="size-20" textClassName="text-xl" />
       <div className="flex w-full flex-1 flex-col items-center gap-4">
         <p className="text-muted-foreground w-full max-w-80 text-center text-sm">
           Desenvolvimento web personalizado para empresas e empreendedores.

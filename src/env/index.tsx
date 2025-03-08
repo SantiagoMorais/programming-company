@@ -7,6 +7,7 @@ export const envSchema = z.object({
     message: "WhatsApp number must has 11 characters",
   }),
   EMAIL: z.string().email(),
+  DATABASE_URL: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
