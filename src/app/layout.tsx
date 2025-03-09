@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Cactus_Classical_Serif, Rubik } from "next/font/google";
 
+import { ThemeTogglerProvider } from "@/contexts/theme-toggler-context";
+
 const rubik = Rubik({
   variable: "--font-rubik-serif",
   subsets: ["latin"],
@@ -28,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={(rubik.className, cactusClassical.className)}>
-        {children}
+        <ThemeTogglerProvider>{children}</ThemeTogglerProvider>
       </body>
     </html>
   );

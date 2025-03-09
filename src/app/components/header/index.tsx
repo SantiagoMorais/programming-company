@@ -6,7 +6,7 @@ import { header } from "@/style";
 import { Logo } from "./logo";
 import { RoutesList } from "./routes-list";
 import { SheetNavBar } from "./sheet-nav-bar";
-import { ToggleThemeButton } from "./toggle-theme-button";
+import { ThemeTogglerButton } from "./theme-toggler-button";
 
 export const Header = () => {
   const [pageScrolled, setPageScrolled] = useState(false);
@@ -40,7 +40,7 @@ export const Header = () => {
         <SheetNavBar />
         <Logo />
         <RoutesList insideASheet={false} className="hidden md:flex" />
-        <ToggleThemeButton />
+        <ThemeTogglerButton />
       </header>
     </>
   );
