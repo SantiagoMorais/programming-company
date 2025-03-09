@@ -29,11 +29,11 @@ export const Logo = ({ invert, imageClassName, textClassName }: ILogoProps) => {
 
   return (
     <section
-      className={`flex items-center select-none ${invert ? "flex-col gap-0" : "gap-2"}`}
+      className={`flex items-center select-none md:flex-row ${invert ? "flex-col gap-0" : "gap-2"}`}
     >
       <div
         className={twMerge(
-          `relative size-14 ${invert && "mb-1.5"}`,
+          `relative size-12 ${invert && "mb-1.5"}`,
           imageClassName
         )}
       >
@@ -47,7 +47,7 @@ export const Logo = ({ invert, imageClassName, textClassName }: ILogoProps) => {
       <Separator className={`bg-foreground ${!invert && "hidden"}`} />
       <h1
         className={twMerge(
-          "font-family-cactus-classical text-3xl tracking-widest uppercase duration-0",
+          "font-family-cactus-classical text-2xl tracking-widest uppercase duration-0",
           textClassName
         )}
       >

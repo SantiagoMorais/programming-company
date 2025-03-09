@@ -31,7 +31,7 @@ export const Footer = () => (
     </section>
     <Separator />
     <p className="text-muted-foreground flex text-center">
-      © Nome da empresa - Todos os direitos reservados 2025.
+      © Principia Tecnologia - Todos os direitos reservados 2025.
     </p>
   </footer>
 );
