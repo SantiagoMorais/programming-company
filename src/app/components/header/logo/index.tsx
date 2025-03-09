@@ -12,7 +12,7 @@ export const Logo = ({ invert, imageClassName, textClassName }: ILogoProps) => {
 
   return (
     <section
-      className={`flex items-center select-none md:flex-row ${invert ? "flex-col gap-0" : "gap-2"}`}
+      className={`flex items-center select-none ${invert ? "flex-col gap-0" : "gap-2"}`}
     >
       <div
         className={twMerge(
