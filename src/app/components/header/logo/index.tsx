@@ -1,31 +1,14 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import logo from "@/assets/logo.png";
 import { Separator } from "@/components/ui/separator";
+import { useThemeToggler } from "@/contexts/theme-toggler-context";
 import { ILogoProps } from "@/core/interfaces/logo-props";
 
 export const Logo = ({ invert, imageClassName, textClassName }: ILogoProps) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const isDarkMode = document.body.className.includes("dark");
-      setDarkMode(isDarkMode);
-    });
-
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    const initialDarkMode = document.body.className.includes("dark");
-    setDarkMode(initialDarkMode);
-
-    return () => observer.disconnect();
-  }, []);
+  const { isThemeDark } = useThemeToggler();
 
   return (
     <section
@@ -41,7 +24,7 @@ export const Logo = ({ invert, imageClassName, textClassName }: ILogoProps) => {
           src={logo}
           fill
           alt="logo"
-          className={`object-contain duration-0 ${darkMode && "invert"}`}
+          className={`object-contain duration-0 ${isThemeDark && "invert"}`}
         />
       </div>
       <Separator className={`bg-foreground ${!invert && "hidden"}`} />
