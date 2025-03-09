@@ -1,88 +1,80 @@
 "use client";
 
-import { Clock } from "lucide-react";
+import { LaptopMinimal, LaptopMinimalCheck } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import hygraphLogo from "@/assets/icons/hygraph.png";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { customizableContentOptions } from "@/utils/customizable-content-options";
-
-const scheduleMap: Record<string, string> = {
-  Manhã: "08:00 às 12:00",
-  Tarde: "12:00 às 18:00",
-  Noite: "18:00 às 22:00",
-};
+import { Progress } from "@/components/ui/progress";
 
 export const ChildrenContent = () => {
-  const [radioValue, setRadioValue] = useState(
-    customizableContentOptions[0].title
-  );
+  const [progressValue, setProgressValue] = useState<number>(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const handleOnValueChange = (value: string) => {
-    const selectedTitle = customizableContentOptions.find(
-      (option) => option.value === value
-    )?.title;
-    if (selectedTitle) setRadioValue(selectedTitle);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const { top, bottom, height } =
+          sectionRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const twentyPercentOfViewportHeigh = (viewportHeight / 100) * 20;
+
+        const isPartiallyVisible = top < viewportHeight && bottom > 0;
+
+        if (isPartiallyVisible) {
+          if (
+            top <= twentyPercentOfViewportHeigh
+            /* to ensure the header won't cover the element */
+          ) {
+            // if the top of the element be above the viewport, the value keeps 100%
+            setProgressValue(100);
+          } else {
+            // Calculate the progress by the top value
+            const maxTop = viewportHeight - height; // Position when it's in the base
+            const progress = 100 - (top / maxTop) * 100;
+            setProgressValue(Math.max(0, Math.min(100, progress)));
+          }
+        } else {
+          // If the element is not visible, the progress is zero
+          setProgressValue(0);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="flex flex-col items-center gap-4">
-      <div className="mb-4 flex flex-col items-center gap-4">
-        <div className="flex items-center gap-2">
-          <div className="bg-primary/80 relative size-8 rounded-full">
-            <Image
-              src={hygraphLogo}
-              fill
-              alt="Logo Hygraph"
-              className="p-1 invert"
-            />
-          </div>
-          <h3 className="w-fit text-center font-semibold">
-            Horario de Funcionamento
-          </h3>
+    <section
+      ref={sectionRef}
+      className="flex flex-col items-center justify-center gap-2"
+    >
+      <div className="bg-accent border-accent-foreground flex w-full max-w-100 items-center gap-4 rounded-lg border-2 px-2 md:px-4">
+        <div className="bg-primary/80 relative size-12 min-h-12 min-w-12 rounded-full md:size-16 md:min-h-16 md:min-w-16">
+          <Image
+            src={hygraphLogo}
+            fill
+            alt="Logo Hygraph"
+            className="object-contain p-1 invert"
+          />
         </div>
-        <RadioGroup
-          defaultValue="option-one"
-          className="flex flex-wrap justify-center gap-6"
-          onValueChange={(value) => handleOnValueChange(value)}
-        >
-          {customizableContentOptions.map(({ icon: Icon, title, value }) => (
-            <div key={title} className="flex items-center space-x-2">
-              <RadioGroupItem value={value} id={value} />
-              <Label
-                htmlFor={value}
-                className={`hover:text-primary cursor-pointer duration-300 ${radioValue === title && "text-primary"}`}
-              >
-                <Icon />
-                {title}
-              </Label>
-            </div>
-          ))}
-        </RadioGroup>
+        <div className="flex w-full flex-col items-center gap-1">
+          <p className="font-semibold">{progressValue.toFixed()}%</p>
+          <Progress value={progressValue} className="w-full max-w-60 md:h-3" />
+        </div>
+        <div className="relative size-20 md:size-28">
+          <LaptopMinimalCheck
+            className={`text-secondary absolute size-full duration-300 ${progressValue !== 100 && "opacity-0"}`}
+          />
+
+          <LaptopMinimal
+            className={`size-full duration-300 ${progressValue === 100 && "opacity-0"}`}
+          />
+        </div>
       </div>
-      <Card className="w-full overflow-hidden p-0 pb-6 md:w-4/5">
-        <CardHeader className="bg-primary/20 py-4">
-          <CardTitle>Nosso Escritório</CardTitle>
-          <CardDescription>Horário de Funcionamento:</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="flex items-center gap-4">
-            <Clock />
-            <span>
-              {radioValue} - {scheduleMap[radioValue]}
-            </span>
-          </p>
-        </CardContent>
-      </Card>
     </section>
   );
 };
