@@ -12,11 +12,18 @@ export const ThemeTogglerContext = createContext<IThemeTogglerContext>({
 });
 
 export const ThemeTogglerProvider = ({ children }: React.PropsWithChildren) => {
-  const [isThemeDark, setIsThemeDark] = useState<boolean>(() => {
-    const storedTheme = localStorage.getItem("local-theme");
-    if (storedTheme) return JSON.parse(storedTheme);
-    return false;
-  });
+  const [isThemeDark, setIsThemeDark] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleSetTheme = () => {
+      const storedTheme = localStorage.getItem("local-theme");
+      return storedTheme
+        ? setIsThemeDark(JSON.parse(storedTheme))
+        : setIsThemeDark(false);
+    };
+
+    handleSetTheme();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("local-theme", isThemeDark ? "true" : "false");
