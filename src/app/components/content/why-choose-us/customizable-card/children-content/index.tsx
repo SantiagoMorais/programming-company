@@ -10,41 +10,37 @@ import { Progress } from "@/components/ui/progress";
 export const ChildrenContent = () => {
   const [progressValue, setProgressValue] = useState<number>(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const maxProgressValue = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (sectionRef.current) {
-        const { top, bottom, height } =
-          sectionRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const twentyPercentOfViewportHeigh = (viewportHeight / 100) * 20;
+      if (!sectionRef.current) return;
 
-        const isPartiallyVisible = top < viewportHeight && bottom > 0;
+      const { top, bottom, height } =
+        sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const twentyPercentOfViewportHeight = viewportHeight * 0.2;
 
-        if (isPartiallyVisible) {
-          if (
-            top <= twentyPercentOfViewportHeigh
-            /* to ensure the header won't cover the element */
-          ) {
-            // if the top of the element be above the viewport, the value keeps 100%
-            setProgressValue(100);
-          } else {
-            // Calculate the progress by the top value
-            const maxTop = viewportHeight - height; // Position when it's in the base
-            const progress = 100 - (top / maxTop) * 100;
-            setProgressValue(Math.max(0, Math.min(100, progress)));
-          }
-        } else {
-          // If the element is not visible, the progress is zero
-          setProgressValue(0);
-        }
+      const isPartiallyVisible = top < viewportHeight && bottom > 0;
+
+      if (!isPartiallyVisible) return;
+
+      const newProgressValue =
+        top <= twentyPercentOfViewportHeight
+          ? 100
+          : Math.max(
+              0,
+              Math.min(100, 100 - (top / (viewportHeight - height)) * 100)
+            );
+
+      if (newProgressValue > maxProgressValue.current) {
+        maxProgressValue.current = newProgressValue;
+        setProgressValue(newProgressValue);
       }
     };
-    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -69,7 +65,6 @@ export const ChildrenContent = () => {
           <LaptopMinimalCheck
             className={`text-secondary absolute size-full duration-300 ${progressValue !== 100 && "opacity-0"}`}
           />
-
           <LaptopMinimal
             className={`size-full duration-300 ${progressValue === 100 && "opacity-0"}`}
           />
