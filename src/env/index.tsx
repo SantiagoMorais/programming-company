@@ -8,6 +8,7 @@ export const envSchema = z.object({
   }),
   EMAIL: z.string().email(),
   DATABASE_URL: z.string(),
+  DATABASE_TOKEN_ACCESS: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
