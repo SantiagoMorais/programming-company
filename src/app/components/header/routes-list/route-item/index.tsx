@@ -38,7 +38,7 @@ export const RouteItem = ({
       onMouseEnter={handleOnMouseEnter}
       className="relative z-30 block w-fit px-4"
     >
-      {insideASheet ? <SheetClose className="">{link}</SheetClose> : link}
+      {insideASheet ? <SheetClose>{link}</SheetClose> : link}
     </li>
   );
 };

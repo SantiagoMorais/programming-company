@@ -1,3 +1,10 @@
+export const componentsRoutesId = {
+  aboutUs: "Sobre",
+  portfolio: "Portfolio",
+  whyChooseUs: "Diferenciais",
+  faqs: "Dúvidas",
+};
+
 export interface IRoutes {
   title: string;
   path: string;
@@ -5,20 +12,20 @@ export interface IRoutes {
 
 export const navBarRoutes: IRoutes[] = [
   {
-    title: "Home",
-    path: "#",
+    title: componentsRoutesId.aboutUs,
+    path: `#${componentsRoutesId.aboutUs}`,
   },
   {
-    title: "Sobre",
-    path: "#",
+    title: componentsRoutesId.portfolio,
+    path: `#${componentsRoutesId.portfolio}`,
   },
   {
-    title: "Portfólio",
-    path: "#",
+    title: componentsRoutesId.whyChooseUs,
+    path: `#${componentsRoutesId.whyChooseUs}`,
   },
   {
-    title: "Contatos",
-    path: "#",
+    title: componentsRoutesId.faqs,
+    path: `#${componentsRoutesId.faqs}`,
   },
 ];
 

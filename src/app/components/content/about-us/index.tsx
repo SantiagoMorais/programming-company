@@ -5,8 +5,11 @@ import aboutUsImage from "@/assets/about-us-section/about-us.jpg";
 import { AboutUsCards } from "./about-us-cards";
 import { AboutUsContent } from "./about-us-content";
 
-export const AboutUs = () => (
-  <section className="flex max-w-(--breakpoint-xl) flex-col gap-2 md:flex-row md:gap-10">
+export const AboutUs = ({ id }: { id: string }) => (
+  <section
+    id={id}
+    className="flex max-w-(--breakpoint-xl) flex-col gap-2 md:flex-row md:gap-10"
+  >
     <h2 className="mb-6 block text-center text-3xl font-semibold md:hidden md:text-start">
       Quem somos?
     </h2>

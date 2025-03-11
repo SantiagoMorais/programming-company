@@ -3,7 +3,7 @@ import { getProjectsByCategory } from "@/database/hygraph-api";
 import { ContentComingSoon } from "./content-coming-soon";
 import { PortfolioList } from "./portfolio-list";
 
-export const Portfolio = async () => {
+export const Portfolio = async ({ id }: { id: string }) => {
   const categories = await getProjectsByCategory();
 
   const renderContent = () => {
@@ -12,7 +12,10 @@ export const Portfolio = async () => {
   };
 
   return (
-    <section className="flex w-full max-w-(--breakpoint-xl) flex-col items-center gap-4">
+    <section
+      id={id}
+      className="flex w-full max-w-(--breakpoint-xl) flex-col items-center gap-4"
+    >
       <article className="flex flex-col items-center gap-4">
         <h3 className="text-center text-3xl font-semibold md:text-4xl">
           Veja nossos projetos
