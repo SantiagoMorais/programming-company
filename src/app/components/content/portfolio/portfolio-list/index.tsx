@@ -23,7 +23,7 @@ export const PortfolioList = ({ categories }: ICategories) => {
   );
 
   return (
-    <section className="flex flex-col items-center gap-4 md:flex-row md:items-start md:gap-8">
+    <section className="flex w-full flex-col items-center gap-4 md:flex-row md:items-start md:gap-8">
       <ul className="flex w-full flex-wrap items-center justify-center gap-2 md:w-fit md:flex-col">
         {categories.map((category) => (
           <li
@@ -33,10 +33,10 @@ export const PortfolioList = ({ categories }: ICategories) => {
           >
             <Button
               variant="ghost"
-              className={`w-full md:justify-start md:text-lg ${category.id === selectedCategory?.id && "bg-primary/20 text-primary"}`}
+              className={`w-full overflow-hidden text-ellipsis md:max-w-64 md:justify-start md:text-lg ${category.id === selectedCategory?.id && "bg-primary/20 text-primary"}`}
             >
               {parse(category.lucideIconSvg)}
-              {category.categoryName}
+              <p className="truncate">{category.categoryName}</p>
             </Button>
           </li>
         ))}
