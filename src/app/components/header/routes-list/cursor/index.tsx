@@ -1,7 +1,7 @@
 import { motion, TargetAndTransition } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-import { ICursorPosition } from "@/core/interfaces/routes-list-props";
+import { ICursorPosition } from "@/core/interfaces/components/routes-list-props";
 
 interface ICursorProps {
   position: ICursorPosition;

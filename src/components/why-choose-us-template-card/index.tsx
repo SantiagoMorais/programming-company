@@ -1,7 +1,7 @@
 import { CheckCircle } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { IWhyChooseUsTemplateCardProps } from "@/core/interfaces/why-choose-us-template-card-props";
+import { IWhyChooseUsTemplateCardProps } from "@/core/interfaces/components/why-choose-us-template-card-props";
 
 export const WhyChooseUsTemplateCard = ({
   className,

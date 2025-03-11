@@ -2,7 +2,7 @@ import Image from "next/image";
 import { tv } from "tailwind-variants";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { IUploadedSkeletonContentProps } from "@/core/interfaces/uploaded-skeleton-content-props";
+import { IUploadedSkeletonContentProps } from "@/core/interfaces/components/uploaded-skeleton-content-props";
 
 // This constant ensure the components will always have the same size and position
 const sizes = tv({

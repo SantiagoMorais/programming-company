@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { Cursor } from "@/app/components/header/routes-list/cursor";
-import { ICursorPosition } from "@/core/interfaces/routes-list-props";
+import { ICursorPosition } from "@/core/interfaces/components/routes-list-props";
 import { technologyCards } from "@/utils/technology-cards";
 
 import { TechnologyCard } from "./card";

@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import {
   ICursorPosition,
   IRoutesListProps,
-} from "@/core/interfaces/routes-list-props";
+} from "@/core/interfaces/components/routes-list-props";
 import { navBarRoutes } from "@/utils/routes";
 
 import { Cursor } from "./cursor";
