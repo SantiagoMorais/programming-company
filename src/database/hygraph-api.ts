@@ -6,9 +6,11 @@ export const GET_PROJECTS_BY_CATEGORIES = `
     categories {
       id
       categoryName
-      portfolios {
+      lucideIconSvg
+      projects {
         id
         description
+        projectUrl
         banner {
           url
         }

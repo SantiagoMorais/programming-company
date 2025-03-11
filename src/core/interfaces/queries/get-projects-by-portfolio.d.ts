@@ -1,17 +1,19 @@
-export interface ICategory {
-  id: string;
-  categoryName: string;
-  portfolios: Array<{
+export interface ICategories {
+  categories: Array<{
     id: string;
-    description: string;
-    banner: {
-      url: string;
-    };
+    categoryName: string;
+    lucideIconSvg: string;
+    projects: Array<{
+      id: string;
+      description: string;
+      projectUrl: string;
+      banner: {
+        url: string;
+      };
+    }>;
   }>;
 }
 
 export interface IGetProjectsByCategories {
-  data: {
-    categories: Array<ICategory>;
-  };
+  data: ICategories;
 }
