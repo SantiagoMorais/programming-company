@@ -1,5 +1,5 @@
 import { Background } from "@/components/background";
-import { WhatsAppButton } from "@/components/whatsapp-button";
+import { WhatsAppAndScrollButtons } from "@/components/whatsapp-and-scroll-buttons";
 
 import { Content } from "./components/content";
 import { Footer } from "./components/footer";
@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <Content />
       <Footer />
-      <WhatsAppButton />
+      <WhatsAppAndScrollButtons />
     </main>
   );
 }

@@ -10,7 +10,7 @@ export const ThemeTogglerButton = () => {
   const { handleThemeToggler, isThemeDark } = useThemeToggler();
 
   return (
-    <Button variant="ghost" onClick={handleThemeToggler}>
+    <Button variant="ghost" size="icon" onClick={handleThemeToggler}>
       <motion.div
         key={isThemeDark ? "dark" : "light"}
         initial={{ rotate: -45, scale: 0.8 }}
