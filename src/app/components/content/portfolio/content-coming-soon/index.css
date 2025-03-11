@@ -1,0 +1,32 @@
+.vertical-scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    0deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent);
+}
+
+.vertical-scroller[data-animated="true"] .scroller__inner {
+  height: max-content;
+  animation: scroll-vertical 20s linear infinite;
+}
+
+/* Subindo */
+.vertical-scroller[data-direction="up"] .scroller__inner {
+  animation-direction: reverse;
+}
+
+/* Descendo */
+.vertical-scroller[data-direction="down"] .scroller__inner {
+  animation-direction: normal;
+}
+
+@keyframes scroll-vertical {
+  to {
+    transform: translateY(calc(-50% - 0.5rem));
+  }
+}

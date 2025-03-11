@@ -1,14 +1,18 @@
 import { getProjectsByCategory } from "@/database/hygraph-api";
 
+import { ContentComingSoon } from "./content-coming-soon";
 import { PortfolioList } from "./portfolio-list";
 
 export const Portfolio = async () => {
   const categories = await getProjectsByCategory();
 
-  if (!categories.length) return;
+  const renderContent = () => {
+    if (!categories.length) return <ContentComingSoon />;
+    return <PortfolioList categories={categories} />;
+  };
 
   return (
-    <section className="w-full max-w-(--breakpoint-xl) space-y-4">
+    <section className="flex w-full max-w-(--breakpoint-xl) flex-col items-center gap-4">
       <article className="flex flex-col items-center gap-4">
         <h3 className="text-center text-3xl font-semibold md:text-4xl">
           Veja nossos projetos
@@ -19,7 +23,7 @@ export const Portfolio = async () => {
         </p>
       </article>
 
-      <PortfolioList categories={categories} />
+      {renderContent()}
     </section>
   );
 };
