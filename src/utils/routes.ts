@@ -2,7 +2,7 @@ export const componentsRoutesId = {
   aboutUs: "Sobre",
   portfolio: "Portfolio",
   whyChooseUs: "Diferenciais",
-  faqs: "Dúvidas",
+  faqs: "Perguntas",
 };
 
 export interface IRoutes {
