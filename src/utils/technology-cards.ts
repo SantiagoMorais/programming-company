@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 
-import hygraphLogo from "@/assets/icons/hygraph.png";
+import hygraphLogo from "@/assets/icons/hygraph-with-bg.png";
 import nextjsLogo from "@/assets/icons/nextjs.png";
 import reactLogo from "@/assets/icons/react.png";
 import tailwindLogo from "@/assets/icons/tailwind.png";
